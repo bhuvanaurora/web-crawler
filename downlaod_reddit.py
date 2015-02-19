@@ -12,17 +12,6 @@ def downloadUrl(url):
 		raise Exception("Non-OK status code: {}".format(r.status_code))
 	return r.text
 
-def parseText(html):
-	bs = BeautifulSoup(html)
-	div_entry = bs.select('div.entry')
-	'''for div in div_entry:
-		print (div.p)'''
-	links = bs.find_all('a', { "class": "title" })
-	print (links)
-	for link in links:
-		print (link['href'])
-	#return bs.select('body')[0].text
-
 class Crawler(object):
 	def __init__(self, start_url):
 		print ('Crawler object created')
